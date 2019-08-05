@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: edureka-api-service
+spec:
+  type: NodePort
+  selector:
+    type: web-api
+  ports:
+    - protocol: TCP
+      #      targetPort: 8080
+      port: 8080
+      nodePort: 30005 

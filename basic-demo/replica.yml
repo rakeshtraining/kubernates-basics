@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+        name: sample-deploy2
+        labels:
+                apps: deploy2 
+spec:
+        replicas: 3
+        selector:
+                matchLabels:
+                        app: deploy2
+        template: 
+          metadata:
+                  labels:
+                          app: deploy2
+          spec:
+                  containers:
+                          - name: deploy2
+                            image: httpd
+                            ports:
+                                    - containerPort: 80

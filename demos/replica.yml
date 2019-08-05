@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: edureka-api-replica
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      type: web-api
+  template:
+    metadata:
+      name: edureka-pod
+      labels:
+        type: web-api
+    spec:
+      containers:
+        - image: tomcat:latest
+          imagePullPolicy: IfNotPresent
+          name: crazy-api-container-tomcat
+          ports:
+            - containerPort: 8080

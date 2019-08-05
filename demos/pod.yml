@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: edureka-pod
+  labels:
+    type: web-api
+spec:
+  containers:
+    - image: ubuntu:latest
+      #- image: httpd:latest
+      imagePullPolicy: IfNotPresent
+      name: edureka-api-container
+      ports:
+        - containerPort: 8080
